@@ -46,6 +46,74 @@ function Alarm() {
         />
       )}
 
+      <div>
+        {!isRunning && (
+          <button
+            onClick={() => {
+              setMinutes(2);
+              setIsRunning(true);
+            }}
+          >
+            2 Minutes
+          </button>
+        )}
+
+        {!isRunning && (
+          <button
+            onClick={() => {
+              setMinutes(5);
+              setIsRunning(true);
+            }}
+          >
+            5 Minutes
+          </button>
+        )}
+
+        {!isRunning && (
+          <button
+            onClick={() => {
+              setMinutes(10);
+              setIsRunning(true);
+            }}
+          >
+            10 Minutes
+          </button>
+        )}
+
+        {!isRunning && (
+          <button
+            onClick={() => {
+              setMinutes(25);
+              setIsRunning(true);
+            }}
+          >
+            25 Minutes
+          </button>
+        )}
+
+        {!isRunning && (
+          <button
+            onClick={() => {
+              setMinutes(30);
+              setIsRunning(true);
+            }}
+          >
+            30 Minutes
+          </button>
+        )}
+
+        {!isRunning && (
+          <button
+            onClick={() => {
+              setMinutes(60);
+              setIsRunning(true);
+            }}
+          >
+            1 Hour
+          </button>
+        )}
+      </div>
+
       <p>
         Time Left: {minutes.toString().padStart(2, '0')}:
         {seconds.toString().padStart(2, '0')}
