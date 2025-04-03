@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import '../component-css/Alarm.css';
 
 function Alarm() {
   const [minutes, setMinutes] = useState(0);
@@ -30,6 +31,12 @@ function Alarm() {
     }
   };
 
+  const pauseTimer = () => {
+    if (minutes > 0 || seconds > 0) {
+      setIsRunning(false);
+    }
+  };
+
   const resetTimer = () => {
     setIsRunning(false);
     setMinutes(0);
@@ -38,6 +45,11 @@ function Alarm() {
 
   return (
     <div>
+      <p className="Timer">
+        Time Left: {minutes.toString().padStart(2, '0')}:
+        {seconds.toString().padStart(2, '0')}
+      </p>
+
       {!isRunning && (
         <input
           type="number"
@@ -114,16 +126,13 @@ function Alarm() {
         )}
       </div>
 
-      <p>
-        Time Left: {minutes.toString().padStart(2, '0')}:
-        {seconds.toString().padStart(2, '0')}
-      </p>
-
       {!isRunning ? (
         <button onClick={startTimer}>start timer</button>
       ) : (
         <button onClick={resetTimer}>reset</button>
       )}
+
+      {isRunning && <button onClick={pauseTimer}> pause </button>}
     </div>
   );
 }
