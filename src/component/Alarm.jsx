@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import Confetti from 'react-confetti'
 import '../component-css/Alarm.css';
 
 function Alarm() {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false)
 
   useEffect(() => {
     let timer;
@@ -18,8 +20,12 @@ function Alarm() {
         }
       }, 1000);
     } else if (isRunning && minutes === 0 && seconds === 0) {
-      alert('Time is up');
+      setShowConfetti(true);
       setIsRunning(false);
+
+      setTimeout(() => {
+        setShowConfetti(false)
+      }, 9000);
     }
 
     return () => clearInterval(timer);
@@ -41,11 +47,32 @@ function Alarm() {
     setIsRunning(false);
     setMinutes(0);
     setSeconds(0);
+    setShowConfetti(false)
   };
+
+  const addTimer = (minute) => {
+   setMinutes((prevTime) => prevTime + minute)
+  }
+
+
+  const addSeconds = (second) => {
+    setSeconds((prevSeconds) => {
+      const totalSeconds = prevSeconds + second;
+      const newMinutes = Math.floor(totalSeconds / 60); // Convert to minutes
+      const newSeconds = totalSeconds % 60; // Get the remaining seconds
+
+      // Update minutes and seconds in one go
+      setMinutes((prevMinutes) => prevMinutes + newMinutes); // Add minutes correctly
+      return newSeconds; // Update seconds correctly
+    });
+  };
+
+  const timerClass = isRunning && minutes === 0 && seconds <= 60 ? 'last-minute' : '';
 
   return (
     <div>
-      <p className="Timer">
+      {showConfetti && <Confetti width={window.innerWidth} height={window.innerHeight} />}
+      <p className={`Timer ${timerClass}`}>
         Time Left: {minutes.toString().padStart(2, '0')}:
         {seconds.toString().padStart(2, '0')}
       </p>
@@ -58,22 +85,53 @@ function Alarm() {
         />
       )}
 
+      {isRunning && (
+        <button onClick={() => addSeconds(30)}>+30 Seconds</button>
+      )}
+
+      {isRunning && (
+        <button onClick={() => addTimer(2)}>+2 Minutes</button>
+      )}
+      {isRunning && (
+        <button onClick={() => addTimer(10)}>+10 Minutes</button>
+      )}
+      {isRunning && (
+        <button onClick={() => addTimer(25)}>+25 Minutes</button>
+      )}
+
+      
+
       <div>
         {!isRunning && (
           <button
             onClick={() => {
-              setMinutes(2);
+              setMinutes(0);
+              setSeconds(1);
               setIsRunning(true);
             }}
           >
-            2 Minutes
+            Test Confetti
           </button>
         )}
 
         {!isRunning && (
           <button
             onClick={() => {
+              setMinutes(1);
+              setSeconds(0);
+              setIsRunning(true);
+            }}
+          >
+            1 Minutes
+          </button>
+        )}
+        
+
+        {!isRunning && (
+          <button
+            onClick={() => {
               setMinutes(5);
+              setSeconds(0);
               setIsRunning(true);
             }}
           >
@@ -85,6 +143,7 @@ function Alarm() {
           <button
             onClick={() => {
               setMinutes(10);
+              setSeconds(0);
               setIsRunning(true);
             }}
           >
@@ -96,6 +155,7 @@ function Alarm() {
           <button
             onClick={() => {
               setMinutes(25);
+              setSeconds(0);
               setIsRunning(true);
             }}
           >
@@ -107,6 +167,7 @@ function Alarm() {
           <button
             onClick={() => {
               setMinutes(30);
+              setSeconds(0);
               setIsRunning(true);
             }}
           >
@@ -118,6 +179,7 @@ function Alarm() {
           <button
             onClick={() => {
               setMinutes(60);
+              setSeconds(0);
               setIsRunning(true);
             }}
           >
