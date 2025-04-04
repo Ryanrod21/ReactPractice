@@ -21,17 +21,17 @@ function MusicData() {
 
     fetch('https://accounts.spotify.com/api/token', authPara)
       .then((result) => result.json())
-      .then((data) => console.log(data.access_token))
+      .then((data) => setAccessToken(data.access_token))
       .catch((error) => console.log('Error:', error));
   }, []);
 
-  const getArtist = async () => {
+  const getAlbum = async () => {
     const response = {
       method: 'GET',
       headers: { Authorization: 'Bearer' + accessToken },
     };
     const artistID = await fetch(
-      'https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg'
+      'https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy'
     );
   };
 
