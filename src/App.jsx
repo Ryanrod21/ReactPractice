@@ -8,6 +8,7 @@ import Music from './component/Music';
 import SpotifyPlayer from './component/Spotify';
 import './App.css';
 import Navbar from './component/NavBar';
+import Chuck from './component/ChuckAPI';
 
 function App() {
   // useEffect(() => {
@@ -28,6 +29,8 @@ function App() {
       {/* <Music /> */}
       <button onClick={loginWithSpotify}>Login to Spotify</button>
       <button onClick={checkScope}>Check Scope</button>
+
+      <Chuck />
     </>
   );
 }

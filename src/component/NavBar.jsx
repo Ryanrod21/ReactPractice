@@ -33,9 +33,9 @@ return (
         <li><a href="#">Contact</a></li>
         <li><a href="#">Login</a></li>
       </ul>
-      <div class="dropdown">
-  <button class="dropdown-toggle">Choose an option</button>
-  <ul class="dropdown-menu">
+      <div className="dropdown">
+  <button className="dropdown-toggle">Choose an option</button>
+  <ul className="dropdown-menu">
     <li>Apple</li>
     <li>Banana</li>
     <li>Orange</li>
