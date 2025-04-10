@@ -7,6 +7,8 @@ import Alarm from './component/Alarm';
 import Music from './component/Music';
 import SpotifyPlayer from './component/Spotify';
 import './App.css';
+import Navbar from './component/NavBar';
+import Chuck from './component/ChuckAPI';
 
 function App() {
   // useEffect(() => {
@@ -22,7 +24,9 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <div className="Nav">
+        <Navbar />
+      </div>
       <Alarm />
       {/* <Music /> */}
       <button onClick={loginWithSpotify}>Login to Spotify</button>
