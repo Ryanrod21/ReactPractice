@@ -25,7 +25,9 @@ function App() {
 
   return (
     <>
-    <Navbar />
+      <div className="Nav">
+        <Navbar />
+      </div>
       <Alarm />
       {/* <Music /> */}
       <button onClick={loginWithSpotify}>Login to Spotify</button>
