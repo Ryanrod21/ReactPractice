@@ -1,5 +1,3 @@
-import { useEffect } from "react"
-
 const endpoint = 'https://api.chucknorris.io/jokes/random'
 
 const fetchJoke = async () => {

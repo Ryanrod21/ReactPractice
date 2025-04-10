@@ -9,6 +9,7 @@ import SpotifyPlayer from './component/Spotify';
 import './App.css';
 import Navbar from './component/NavBar';
 import Chuck from './component/ChuckAPI';
+import Dropdown from './component/NavDropdown';
 
 function App() {
   // useEffect(() => {
@@ -31,6 +32,8 @@ function App() {
       <button onClick={checkScope}>Check Scope</button>
 
       <Chuck />
+
+      <Dropdown />
     </>
   );
 }
