@@ -8,6 +8,8 @@ import Music from './component/Music';
 import SpotifyPlayer from './component/Spotify';
 import './App.css';
 
+import CNJoke from './Data/CN';
+
 function App() {
   useEffect(() => {
     const token = getToken();
@@ -26,6 +28,7 @@ function App() {
       <Music />
       <button onClick={loginWithSpotify}>Login to Spotify</button>
       <button onClick={checkScope}>Check Scope</button>
+      <CNJoke />
     </>
   );
 }
