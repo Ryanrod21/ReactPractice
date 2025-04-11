@@ -1,31 +1,59 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
+.dropdown-menu {
+  position: absolute;
+  color: black;
+  background-color: white;
+  border: 1px solid #ccc;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
 
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    margin-top: 4px;
-    list-style: none;
-    padding: 0;
-    width: 150px;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
+.dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+}
 
-  .dropdown-menu li {
-    padding: 10px;
-    cursor: pointer;
-  }
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
 
-  .dropdown-menu li:hover {
-    background-color: #f0f0f0;
-  }
+.dropdown.show .dropdown-menu {
+  display: block;
+}
 
-  .dropdown.show .dropdown-menu {
-    display: block;
-  }
+.dropdown-toggle {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.theme-red {
+  background-color: red;
+}
+.theme-green {
+  background-color: green;
+}
+.theme-blue {
+  background-color: blue;
+}
+.theme-yellow {
+  background-color: yellow;
+}
+.theme-light {
+  background-color: white;
+}
+.theme-dark {
+  background-color: black;
+  color: white;
+}

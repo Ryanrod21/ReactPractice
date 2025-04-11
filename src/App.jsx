@@ -34,8 +34,6 @@ function App() {
       <button onClick={checkScope}>Check Scope</button>
 
       <Chuck />
-
-      <Dropdown />
     </>
   );
 }

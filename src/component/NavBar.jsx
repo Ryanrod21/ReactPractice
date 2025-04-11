@@ -1,5 +1,5 @@
 import '../navbar.css';
-
+import Dropdown from './NavDropdown';
 
 const Navbar = () => {
   const styles = {
@@ -19,11 +19,17 @@ const Navbar = () => {
       display: 'flex',
       gap: '16px',
     },
+    // linkTheme: {
+    //   display: 'flex',
+    //   flexDirection: 'row',
+    //   gap: '60px',
+    // },
   };
 
   return (
     <nav style={styles.nav}>
       <h2 style={styles.logo}>TheGamerHub</h2>
+      {/* <div style={styles.linkTheme}> */}
       <ul style={styles.navLinks}>
         <li>
           <a href="#">Home</a>
@@ -38,14 +44,8 @@ const Navbar = () => {
           <a href="#">Login</a>
         </li>
       </ul>
-      <div className="dropdown">
-  <button className="dropdown-toggle">Choose an option</button>
-  <ul className="dropdown-menu">
-    <li>Apple</li>
-    <li>Banana</li>
-    <li>Orange</li>
-  </ul>
-</div>
+      <Dropdown />
+      {/* </div> */}
     </nav>
   );
 };
